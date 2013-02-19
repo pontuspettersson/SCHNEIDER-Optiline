@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        
+    </head>
+    <body>
+        <div data-role="page" id="info">
+            <div class="header">
+                <ul class="productMenu">
+                    <li><a href="/products.html"><h3>Produkter</h3></a></li>
+                    <li><a href="/productPics.html"><h3>Bilder</h3></a></li>
+                    <li><a href="/productInfo.html" class="active"><h3>Information</h3></a></li>
+                </ul>
+                <h2 class="productHeader">Tillbehör</h2> 
+            </div>
+            <div id="content">
+                <script>
+                    var text = "";
+                    for(var i = 0; i < jsonProducts.length; i++){
+                        
+                         if (jsonProducts[i].productGroupId == pgroupId){
+                             text += '<p>' + jsonProducts[i].partnumberDescription + '<p>';
+                         }
+                    }
+                    
+                    document.getElementById("content").innerHTML=text; 
+                </script>
+            </div>
+            <ul class="backButton">
+                <li><a href="/underNodes.html"><h2>Tillbaka</h2></a></li>
+            </ul>  
+            <div data-role="footer" data-position="fixed" data-id="oneFooter">
+                <ul class="footMenu">
+                    <li><a href="#menu"><img src="images/home.png"/></a></li>
+                    <li><a href="mylist.html"><img src="images/mylist.png"/></a></li>
+                    <li><a href="schneiderpasset.html"><img src="images/schneiderpasset.png"/></a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        
+    </head>
+    <body>
+        <div data-role="page" id="prods">
+            <div class="header">
+                <ul class="productMenu">
+                    <li><a href="products.html" class="active"><h3>Produkter</h3></a></li>
+                    <li><a href="productPics.html"><h3>Bilder</h3></a></li>
+                    <li><a href="productInfo.html"><h3>Information</h3></a></li>
+                </ul>
+                <h2 class="productHeader">Tillbehör</h2> 
+            </div>
+            <div class="nav">
+                <ul id="products" class="schneiderList">
+                    <script>
+                        var text = "";
+                        var size = 22;
+                        var pad = 0;
+                        for(var i = 0; i < jsonProducts.length; i++){
+                            size = 22;
+                            pad = 0;
+                            if (jsonProducts[i].productGroupId == pgroupId){
+                                if (jsonProducts[i].partnumberDescription.length > 20 && jsonProducts[i].partnumberDescription.length <= 25) {
+                                    size = 20;
+                                    pad = 22 - size;
+                                }else if (jsonProducts[i].partnumberDescription.length > 25 && jsonProducts[i].partnumberDescription.length <= 30) {
+                                    size = 17;
+                                    pad = 22 - size;
+                                }else if (jsonProducts[i].partnumberDescription.length > 30 && jsonProducts[i].partnumberDescription.length <= 35) {
+                                    size = 14;
+                                    pad = 22 - size;
+                                }else if (jsonProducts[i].partnumberDescription.length > 35 && jsonProducts[i].partnumberDescription.length <= 40) {
+                                    size = 11;
+                                    pad = 22 - size;
+                                }
+                                text += '<li id="pList' + jsonProducts[i].productId + '" style="margin-top: ' + (-15 + pad) + 'px;"><a id="pLink' + jsonProducts[i].productId + '" onclick="showProduct(' + jsonProducts[i].productId + ')" data-transition="slide"><h2 style="font-size:' + size + 'px; padding-top:' + pad + 'px">' + jsonProducts[i].partnumberDescription + '</h2></a></li><div id="product' + jsonProducts[i].productId + '"></div>';
+                            }
+                        }
+                        
+                        document.getElementById("products").innerHTML=text;
+                    </script>
+                </ul>
+            </div>
+            <ul class="backButton">
+                <li><a href="underNodes.html"><h2>Tillbaka</h2></a></li>
+            </ul>
+            <div data-role="footer" data-position="fixed" data-id="oneFooter">
+                <ul class="footMenu">
+                    <li><a href="#menu"><img src="images/home.png"/></a></li>
+                    <li><a href="mylist.html"><img src="images/mylist.png"/></a></li>
+                    <li><a href="schneiderpasset.html"><img src="images/schneiderpasset.png"/></a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>

@@ -8,8 +8,12 @@
     <IsRunnable>true</IsRunnable>
     <TemplateAppName>Cordova220</TemplateAppName>
     <AndroidPermissions>android.permission.CAMERA;android.permission.VIBRATE;android.permission.ACCESS_COARSE_LOCATION;android.permission.ACCESS_FINE_LOCATION;android.permission.ACCESS_LOCATION_EXTRA_COMMANDS;android.permission.READ_PHONE_STATE;android.permission.INTERNET;android.permission.RECEIVE_SMS;android.permission.RECORD_AUDIO;android.permission.MODIFY_AUDIO_SETTINGS;android.permission.READ_CONTACTS;android.permission.WRITE_CONTACTS;android.permission.WRITE_EXTERNAL_STORAGE;android.permission.ACCESS_NETWORK_STATE;android.permission.ACCOUNT_MANAGER;android.permission.GET_ACCOUNTS;android.permission.MANAGE_ACCOUNTS;android.permission.BROADCAST_STICKY</AndroidPermissions>
-    <DeviceOrientations>Portrait;Landscape</DeviceOrientations>
+    <DeviceOrientations>Portrait</DeviceOrientations>
     <iOSStatusBarStyle>Default</iOSStatusBarStyle>
+    <BundleVersion>1.0</BundleVersion>
+    <iOSDisplayName />
+    <AndroidVersionCode>1</AndroidVersionCode>
+    <AndroidHardwareAcceleration>false</AndroidHardwareAcceleration>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="App_Resources" />
@@ -28,6 +32,10 @@
     <Folder Include="App_Resources\Android\drawable-ldpi">
       <Platform>Android</Platform>
     </Folder>
+    <Folder Include="json" />
+    <Folder Include="images" />
+    <Folder Include="catalog" />
+    <Folder Include="styles" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="App_Resources\iOS\icon.png" />
@@ -40,7 +48,7 @@
     <Resource Include="App_Resources\iOS\Icon-Small-50@2x.png" />
     <Resource Include="App_Resources\iOS\Default.png" />
     <Resource Include="App_Resources\iOS\Default@2x.png" />
-  <Resource Include="App_Resources\iOS\Default-568h@2x.png" />
+    <Resource Include="App_Resources\iOS\Default-568h@2x.png" />
     <Resource Include="App_Resources\iOS\Default-Portrait.png" />
     <Resource Include="App_Resources\iOS\Default-Landscape.png" />
     <Resource Include="App_Resources\iOS\Default-Portrait@2x.png" />
@@ -52,15 +60,155 @@
     <Resource Include="App_Resources\Android\drawable-ldpi\icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="catalog\164561_1.jpg" />
+    <Content Include="catalog\164669_1.jpg" />
+    <Content Include="catalog\357083_1.jpg" />
+    <Content Include="catalog\357084_1.jpg" />
+    <Content Include="catalog\357085_1.jpg" />
+    <Content Include="catalog\357086_1.jpg" />
+    <Content Include="catalog\357087_1.jpg" />
+    <Content Include="catalog\357088_1.jpg" />
+    <Content Include="catalog\357089_1.jpg" />
+    <Content Include="catalog\357090_1.jpg" />
+    <Content Include="catalog\357099_1.jpg" />
+    <Content Include="catalog\357100_1.jpg" />
+    <Content Include="catalog\357101_1.jpg" />
+    <Content Include="catalog\357102_1.jpg" />
+    <Content Include="catalog\357103_1.jpg" />
+    <Content Include="catalog\357105_1.jpg" />
+    <Content Include="catalog\357106_1.jpg" />
+    <Content Include="catalog\357107_1.jpg" />
+    <Content Include="catalog\357108_1.jpg" />
+    <Content Include="catalog\357109_1.jpg" />
+    <Content Include="catalog\357110_1.jpg" />
+    <Content Include="catalog\357112_1.jpg" />
+    <Content Include="catalog\357113_1.jpg" />
+    <Content Include="catalog\357114_1.jpg" />
+    <Content Include="catalog\357115_1.jpg" />
+    <Content Include="catalog\357116_1.jpg" />
+    <Content Include="catalog\357117_1.jpg" />
+    <Content Include="catalog\357118_1.jpg" />
+    <Content Include="catalog\357119_1.jpg" />
+    <Content Include="catalog\357120_1.jpg" />
+    <Content Include="catalog\357121_1.jpg" />
+    <Content Include="catalog\357122_1.jpg" />
+    <Content Include="catalog\357123_1.jpg" />
+    <Content Include="catalog\357124_1.jpg" />
+    <Content Include="catalog\357125_1.jpg" />
+    <Content Include="catalog\357126_1.jpg" />
+    <Content Include="catalog\357127_1.jpg" />
+    <Content Include="catalog\357128_1.jpg" />
+    <Content Include="catalog\357129_1.jpg" />
+    <Content Include="catalog\357130_1.jpg" />
+    <Content Include="catalog\357131_1.jpg" />
+    <Content Include="catalog\357133_1.jpg" />
+    <Content Include="catalog\357134_1.jpg" />
+    <Content Include="catalog\357135_1.jpg" />
+    <Content Include="catalog\357136_1.jpg" />
+    <Content Include="catalog\357137_1.jpg" />
+    <Content Include="catalog\357138_1.jpg" />
+    <Content Include="catalog\357139_1.jpg" />
+    <Content Include="catalog\357140_1.jpg" />
+    <Content Include="catalog\357141_1.jpg" />
+    <Content Include="catalog\357143_1.jpg" />
+    <Content Include="catalog\357144_1.jpg" />
+    <Content Include="catalog\357303_1.jpg" />
+    <Content Include="catalog\357304_1.jpg" />
+    <Content Include="catalog\357305_1.jpg" />
+    <Content Include="catalog\357306_1.jpg" />
+    <Content Include="catalog\357307_1.jpg" />
+    <Content Include="catalog\357308_1.jpg" />
+    <Content Include="catalog\357309_1.jpg" />
+    <Content Include="catalog\357310_1.jpg" />
+    <Content Include="catalog\357311_1.jpg" />
+    <Content Include="catalog\357312_1.jpg" />
+    <Content Include="catalog\357313_1.jpg" />
+    <Content Include="catalog\357316_1.jpg" />
+    <Content Include="catalog\357317_1.jpg" />
+    <Content Include="catalog\357318_1.jpg" />
+    <Content Include="catalog\357319_1.jpg" />
+    <Content Include="catalog\357320_1.jpg" />
+    <Content Include="catalog\357321_1.jpg" />
+    <Content Include="catalog\357322_1.jpg" />
+    <Content Include="catalog\357323_1.jpg" />
+    <Content Include="catalog\357324_1.jpg" />
+    <Content Include="catalog\357325_1.jpg" />
+    <Content Include="catalog\357326_1.jpg" />
+    <Content Include="catalog\357328_1.jpg" />
+    <Content Include="catalog\357329_1.jpg" />
+    <Content Include="catalog\357336_1.jpg" />
+    <Content Include="catalog\357337_1.jpg" />
+    <Content Include="catalog\357338_1.jpg" />
+    <Content Include="catalog\357339_1.jpg" />
+    <Content Include="catalog\357340_1.jpg" />
+    <Content Include="catalog\357341_1.jpg" />
+    <Content Include="catalog\357342_1.jpg" />
+    <Content Include="catalog\357343_1.jpg" />
+    <Content Include="catalog\357344_1.jpg" />
+    <Content Include="catalog\357345_1.jpg" />
+    <Content Include="catalog\357558_1.jpg" />
+    <Content Include="catalog\357559_1.jpg" />
+    <Content Include="catalog\357560_1.jpg" />
+    <Content Include="catalog\357561_1.jpg" />
+    <Content Include="catalog\357562_1.jpg" />
+    <Content Include="catalog\357563_1.jpg" />
+    <Content Include="catalog\357564_1.jpg" />
+    <Content Include="catalog\357565_1.jpg" />
+    <Content Include="catalog\446644_1.jpg" />
+    <Content Include="catalog\446644_2.jpg" />
+    <Content Include="catalog\446644_3.jpg" />
+    <Content Include="catalog\446645_1.jpg" />
+    <Content Include="catalog\459461_1.jpg" />
+    <Content Include="catalog\517913_1.jpg" />
+    <Content Include="catalog\517915_1.jpg" />
+    <Content Include="catalog\517918_1.jpg" />
+    <Content Include="films.html" />
+    <Content Include="images\add-mylist.png" />
+    <Content Include="images\arrow-left.png" />
+    <Content Include="images\arrow-right.png" />
+    <Content Include="images\background.png" />
+    <Content Include="images\btn-down.png" />
+    <Content Include="images\btn-empty.png" />
+    <Content Include="images\btn-info.png" />
+    <Content Include="images\btn-left.png" />
+    <Content Include="images\btn-off.png" />
+    <Content Include="images\btn-on.png" />
+    <Content Include="images\btn-red-default.png" />
+    <Content Include="images\btn-right.png" />
+    <Content Include="images\bubble.png" />
+    <Content Include="images\home.png" />
+    <Content Include="images\mylist.png" />
+    <Content Include="images\overlay.png" />
+    <Content Include="images\schneiderpasset.png" />
+    <Content Include="images\sortiment-header.png" />
+    <Content Include="images\sortiment-header2.png" />
+    <Content Include="images\sortiment-header2@2x.png" />
+    <Content Include="images\sortiment-header@2x.png" />
+    <Content Include="images\splash.png" />
+    <Content Include="images\tab-active.png" />
+    <Content Include="images\tab-active@2x.png" />
+    <Content Include="images\tab-header.png" />
+    <Content Include="images\tab-header@2x.png" />
+    <Content Include="images\tab-inactive.png" />
+    <Content Include="images\tab-inactive@2x.png" />
     <Content Include="index.html" />
+    <Content Include="json\mylist.json" />
+    <Content Include="json\products.json" />
     <Content Include="kendo\js\jquery.min.js" />
     <Content Include="kendo\js\kendo.mobile.min.js" />
+    <Content Include="kendo\styles\Copy of kendo.mobile.all.min.css" />
     <Content Include="kendo\styles\images\back.png" />
     <Content Include="kendo\styles\images\KendoUI.ttf" />
     <Content Include="kendo\styles\images\KendoUI.woff" />
     <Content Include="kendo\styles\kendo.mobile.all.min.css" />
-    <Content Include="scripts\hello-world.js" />
-    <Content Include="styles\main.css" />
+    <Content Include="mylist.html" />
+    <Content Include="nodes.html" />
+    <Content Include="productGroups.html" />
+    <Content Include="productInfo.html" />
+    <Content Include="productPics.html" />
+    <Content Include="products.html" />
+    <Content Include="schneiderpasset.html" />
+    <Content Include="scripts\globeNfunc.js" />
     <Content Include="cordova.ios.js">
       <Platform>iOS</Platform>
       <TargetName>cordova.js</TargetName>
@@ -69,6 +217,8 @@
       <Platform>Android</Platform>
       <TargetName>cordova.js</TargetName>
     </Content>
+    <Content Include="styles\main.css" />
+    <Content Include="underNodes.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Telerik\ICE\Tools\Mobile\MobileTools.targets" />
 </Project>

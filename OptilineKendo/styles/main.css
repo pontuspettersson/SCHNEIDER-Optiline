@@ -1,26 +1,236 @@
-﻿body
-{
-    font: Arial, sans-serif;
+dbody {
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
-.buttonArea,
-.footerText,
-#geoLocationContainer,
-#helloWorldInput,
-#helloWorldText
-{
+h3, p {
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    text-align: center;
+    color: green;
+}
+
+.header p {
+    text-align: center;
+    font-size: 12px;
+    color: green;
+    padding: 0 5px;
+}
+
+.productHeader {
+    font-size: 16px;
+}
+
+.ui-footer {
+    text-align: center;    
+}
+
+.err {
+    color: red;
+}
+
+#map_canvas {
     text-align: center;
 }
 
-#txtName
-{
-    border: 1px solid #AAA;
-    border-radius: 15px;
-    position:static;
-    margin-left: 1em;
-    margin-top: 0.3em;
-    margin-bottom: 0.3em;
-    background:white;
-    color: black;
-    padding: 7px;
+.nav {
+    clear: both;
+    height: 100%;
+}
+
+.schneiderList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.schneiderList li {
+    margin-top: -15px;
+    height: 33px;
+    background-image: url(../images/btn-right.png);
+    background-repeat: no-repeat;
+}
+
+.schneiderList a {
+    text-decoration: none;
+}
+
+.schneiderList h2 {
+    color: white;
+    margin-left: 10px;
+}
+
+.schneiderList p {
+    font-size: 14px;
+    margin-left: 10px;
+    padding-top: 7px;
+}
+
+.mylist {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mylist li {
+    margin-top: -15px;
+    height: 36px;
+    background-image: url(../images/btn-empty.png);
+    background-repeat: no-repeat;
+}
+
+.mylist a {
+    text-decoration: none;
+}
+
+.mylist h2 {
+    color: white;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.mylist p {
+    font-size: 14px;
+    margin-left: 10px;
+    padding-top: 7px;
+}
+
+.delButton {
+    float: right;
+    margin-top: -32px;
+    margin-right: 5px;
+    height: 30px;
+    width: 60px;
+    background-image: url(../images/btn-red-default.png);
+    background-repeat: no-repeat;
+}
+
+.delButton p {
+    margin-top: 0px;
+    font-size: 12px;
+}
+
+.backButton {
+    position: relative;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.backButton li {
+    background-image: url(../images/btn-left.png);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 33px;
+}
+
+.backButton li a {
+    text-decoration:none;
+}
+
+.backButton h2 {
+    color: white;
+    text-align: center;
+}
+
+.productMenu {
+    list-style-type:none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.productMenu li {
+    display: inline;
+    float: left;
+    width: 32%;
+}
+
+.productMenu li a {
+    text-decoration:none;
+    display: block;
+    background-image: url(../images/tab-inactive.png);
+    background-repeat: no-repeat;
+    margin-left: 12%;
+    padding-bottom: 1px;
+}
+
+.productMenu li .active {
+    text-decoration:none;
+    display: block;
+    background-image: url(../images/tab-active.png);
+    background-repeat: no-repeat;
+    margin-left: 12%;
+    margin-top: -6px;
+}
+
+.productMenu h3 {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.productHeader {
+    float: left;
+    text-align: left;
+    color: white;
+    background-image: url(../images/tab-header.png);
+    background-repeat: no-repeat;
+    width: 97.5%;
+    margin: -7px 0 0 0;
+    padding-left: 2.5%;
+}
+
+.changePic {
+    text-align: center;
+}
+
+#content {
+    clear: both;
+}
+
+.content {
+    clear: both;
+}
+
+#gradeHolder {
+    color: white;
+    font-size: 36px;
+    width: 30px;
+    position: absolute;
+    top: 175px;
+    left: 75%;
+    transform:rotate(90deg);
+    -ms-transform:rotate(90deg); /* IE 9 */
+    -moz-transform:rotate(90deg); /* Firefox */
+    -webkit-transform:rotate(90deg); /* Safari and Chrome */
+    -o-transform:rotate(90deg); /* Opera */
+}
+
+.footMenu {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    height: 60px;
+    width: 100%;
+}
+
+.footMenu li {
+    display: inline;
+    float: left;
+    margin-top: 15px;
+    width: 33%;
+}
+
+.footMenu li a {
+    display: block;
+    padding-left: 25%;
 }

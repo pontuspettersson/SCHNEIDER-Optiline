@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>  
+    </head>
+    <body>
+        <div data-role="view" id="info">
+            <div class="header">
+                <h1>Min Lista</h1>
+                <ul id="mylist" class="schneiderList">
+                    <script>
+                        var text = "";
+                        for(var i = 0; i < mylistProducts.length; i++){
+                            text += '<li><h2>' + mylistProducts[0].productId + '</h2></li>';
+                        }
+                        document.getElementById("mylist").innerHTML=text;             
+                    </script>  
+                </ul>        
+            </div>
+            <ul class="backButton">
+                <li><a href="#menu"><h2>Tillbaka</h2></a></li>
+            </ul>  
+            <div data-role="footer" data-position="fixed" data-id="oneFooter">
+                <ul class="footMenu">
+                    <li><a href="#menu"><img src="images/home.png"/></a></li>
+                    <li><a href="mylist.html"><img src="images/mylist.png"/></a></li>
+                    <li><a href="schneiderpasset.html"><img src="images/schneiderpasset.png"/></a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,67 +1,292 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <title></title>
         <meta charset="utf-8" />
-        <script src="cordova.js"></script>
-        <script src="kendo/js/jquery.min.js"></script>
-        <script src="kendo/js/kendo.mobile.min.js"></script>
-        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-        <script src="scripts/hello-world.js"></script>
-
         <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
         <link href="styles/main.css" rel="stylesheet" />
     </head>
     <body>
-        <div data-role="view" id="tabstrip-home" data-title="Hello World!">
-            <h1>Welcome!</h1>
-            <p>
-                Icenium&trade; enables you to build cross-platform device applications regardless of your 
-                development platform by combining the convenience of a local development toolset with the 
-                power and flexibility of the cloud.
-            </p>
+        <!-------------------- SPLASHSCREEN -------------------->
+        <div data-role="view" id="home" data-init="test">
+            <a href="#menu" data-role="button"><img src="images/splash.png" width="100%" height="100%"/></a>
         </div>
 
-        <div data-role="view" id="tabstrip-uiinteraction" data-title="UI Interaction">
-            <h1>Say Hello!</h1>
-            <div id='helloWorldInput'>
-                <label for="txtName" style="display: inline-block;">Enter your name:</label>
-                <input type="text" id="txtName" value="" />
+        <!-------------------- MENU -------------------->
+        <div data-role="view" id="menu">
+            <div class="header">
+                <a href="#appInfo" data-role="button" data-transition="slidedown" style="float:right; margin-right: 5px;"><img src="images/btn-info.png" alt="" /></a>
+                <h1>Vad vill du göra?</h1>
             </div>
-            <div id='helloWorldText' style="display:block;"></div>
-            <div class="buttonArea">
-                <a id="resetButton" data-role="button" data-click="sayHelloReset" data-icon="refresh">Reset</a>
-                <a id="submitButton" data-role="button" data-click="sayHello" data-icon="compose">Submit</a>
+                <div class="nav">
+                    <ul class="schneiderList">
+                        <li><a href="#nodes" data-role="button" data-transition="slide"><h2>Bläddra i katalogen</h2></a></li>
+                        <li><a href="#films" data-role="button"><h2>Monteringsfilmer</h2></a></li>
+                    </ul>
+                </div>    
+            <div data-role="footer" data-position="fixed" data-id="oneFooter">
+                <ul class="footMenu">
+                    <li><a href="#menu" data-role="button"><img src="images/home.png"/></a></li>
+                    <li><a href="#mylist" data-role="button"><img src="images/mylist.png"/></a></li>
+                    <li><a href="#schneiderpasset" data-role="button"><img src="images/schneiderpasset.png"/></a></li>
+                </ul>
             </div>
         </div>
+        
+        <!-------------------- NODES -------------------->
+        <div data-role="view" id="nodes" data-show="showNodes">
+            <div class="header">
+                <h1>Noder</h1>
+            </div>
+            <div class="nav">
+                <ul id="nodesList" class="schneiderList" data-click="test">
 
-        <div data-role="view" id="tabstrip-geolocation" data-title="Geolocation">
-            <h1>My Location</h1>
-            <div id="geoLocationContainer">
-                <div id="myLocation">Unable to get location information. Please check your network connection and try again.</div>
-                <a id="refreshMap" data-role="button" data-click="getLocation" data-icon="refresh">Refresh Location</a>
-                <div id="map_canvas"></div>
+                </ul>    
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="oneFooter">
+                <ul class="backButton">
+                    <li><a href="#menu" data-role="button"><h2>Tillbaka</h2></a></li>
+                </ul> 
+                <ul class="footMenu">
+                    <li><a href="#menu" data-role="button"><img src="images/home.png"/></a></li>
+                    <li><a href="#mylist" data-role="button"><img src="images/mylist.png"/></a></li>
+                    <li><a href="#schneiderpasset" data-role="button"><img src="images/schneiderpasset.png"/></a></li>
+                </ul>
             </div>
         </div>
-
-        <div data-role="layout" data-id="mobile-tabstrip">
-            <header data-role="header">
-                <div data-role="navbar">
-                    <span data-role="view-title"></span>
+        
+        <!-------------------- UNDERNODES -------------------->
+        <div data-role="view" id="underNodes" data-show="showUnderNodes">
+            <div class="header">
+                <h1>Undernoder</h1>
+            </div>
+            <div class="nav">
+                <ul id="underNodesList" class="schneiderList">
+                        
+                </ul>
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="oneFooter">
+                <ul class="backButton">
+                    <li><a href="#nodes" data-role="button"><h2>Tillbaka</h2></a></li>
+                </ul>
+                <ul class="footMenu">
+                    <li><a href="#menu" data-role="button"><img src="images/home.png"/></a></li>
+                    <li><a href="#mylist" data-role="button"><img src="images/mylist.png"/></a></li>
+                    <li><a href="#schneiderpasset" data-role="button"><img src="images/schneiderpasset.png"/></a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-------------------- PRODUCTION GROUPS -------------------->
+        <div data-role="view" id="productGroups" data-show="showProductGroups">
+            <div class="header">
+                <h1>Produktgrupper</h1>
+            </div>
+            <div class="nav">
+                <ul id="productGroupsList" class="schneiderList">
+                    
+                </ul>
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="oneFooter">
+                <ul class="backButton">
+                    <li><a href="#underNodes" data-role="button"><h2>Tillbaka</h2></a></li>
+                </ul> 
+                <ul class="footMenu">
+                    <li><a href="#menu" data-role="button"><img src="images/home.png"/></a></li>
+                    <li><a href="#mylist" data-role="button"><img src="images/mylist.png"/></a></li>
+                    <li><a href="#schneiderpasset" data-role="button"><img src="images/schneiderpasset.png"/></a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-------------------- PRODUCTS -------------------->
+        <div data-role="view" id="products" data-show="showProducts">
+            <div class="header">
+                <ul class="productMenu">
+                    <li><a href="#products" data-role="button" class="active"><h3>Produkter</h3></a></li>
+                    <li><a href="#productPics" data-role="button"><h3>Bilder</h3></a></li>
+                    <li><a href="#productInfo" data-role="button"><h3>Information</h3></a></li>
+                </ul>
+                <h2 id="productHeaderProduct" class="productHeader"></h2> 
+            </div>
+            <div class="nav">
+                <ul id="productsList" data-role="listview" class="schneiderList">
+                    
+                </ul>
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="oneFooter">
+                <ul class="backButton">
+                    <li><a href="#underNodes" data-role="button"><h2>Tillbaka</h2></a></li>
+                </ul> 
+                <ul class="footMenu">
+                    <li><a href="#menu" data-role="button"><img src="images/home.png"/></a></li>
+                    <li><a href="#mylist" data-role="button"><img src="images/mylist.png"/></a></li>
+                    <li><a href="#schneiderpasset" data-role="button"><img src="images/schneiderpasset.png"/></a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-------------------- PRODUCTPICS -------------------->
+        <div data-role="view" id="productPics" data-show="showProductPic">
+            <div class="header">
+                <ul class="productMenu">
+                    <li><a href="#products" data-role="button"><h3>Produkter</h3></a></li>
+                    <li><a href="#productPics" data-role="button" class="active"><h3>Bilder</h3></a></li>
+                    <li><a href="#productInfo" data-role="button"><h3>Information</h3></a></li>
+                </ul>
+                <h2 id="productHeaderPics" class="productHeader"></h2>   
+            </div>
+            <a href="#productPics?show=prev" class="changePic" data-role="button" data-click="showProductPic"><img src="images/arrow-left.png" alt=""/></a>
+            <a href="#productPics?show=next" class="changePic" style="float:right" data-role="button" data-click="showProductPic"><img src="images/arrow-right.png" alt=""/></a>
+            <div id="productPicsHolder">
+                
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="oneFooter">
+                <ul class="backButton">
+                    <li><a href="#underNodes" data-role="button"><h2>Tillbaka</h2></a></li>
+                </ul>
+                <ul class="footMenu">
+                    <li><a href="#menu" data-role="button"><img src="images/home.png"/></a></li>
+                    <li><a href="#mylist" data-role="button"><img src="images/mylist.png"/></a></li>
+                    <li><a href="#schneiderpasset" data-role="button"><img src="images/schneiderpasset.png"/></a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-------------------- PRODUCTINFO -------------------->
+        <div data-role="view" id="productInfo" data-show="showProductGroupInfo">
+            <div class="header">
+                <ul class="productMenu">
+                    <li><a href="#products" data-role="button"><h3>Produkter</h3></a></li>
+                    <li><a href="#productPics" data-role="button"><h3>Bilder</h3></a></li>
+                    <li><a href="#productInfo" data-role="button" class="active"><h3>Information</h3></a></li>
+                </ul>
+                <h2 id="productHeaderInfo" class="productHeader"></h2> 
+            </div>
+            <div id="productInfoContent" class="content">
+                
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="oneFooter">
+                <ul class="backButton">
+                    <li><a href="#underNodes" data-role="button"><h2>Tillbaka</h2></a></li>
+                </ul> 
+                <ul class="footMenu">
+                    <li><a href="#menu" data-role="button"><img src="images/home.png"/></a></li>
+                    <li><a href="#mylist" data-role="button"><img src="images/mylist.png"/></a></li>
+                    <li><a href="#schneiderpasset" data-role="button"><img src="images/schneiderpasset.png"/></a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-------------------- FILMS -------------------->
+        <div data-role="view" id="films" data-show="loadYoutube">
+            <div class="header">
+                <h1>Monteringsfilmer</h1>
+            </div>
+            <ul id="filmContent" class="schneiderList">
+                
+            </ul>  
+            <div data-role="footer" data-position="fixed" data-id="oneFooter">
+                <ul class="backButton">
+                    <li><a href="#menu" data-role="button"><h2>Tillbaka</h2></a></li>
+                </ul>  
+                <ul class="footMenu">
+                    <li><a href="#menu" data-role="button"><img src="images/home.png"/></a></li>
+                    <li><a href="#mylist" data-role="button"><img src="images/mylist.png"/></a></li>
+                    <li><a href="#schneiderpasset" data-role="button"><img src="images/schneiderpasset.png"/></a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-------------------- SHOWFILMS -------------------->
+        <div data-role="view" id="showFilm" data-show="openVideo">
+            <div class="header">
+                <h1>Monteringsfilmer</h1>
+            </div>
+            <div id="showFilmContent">
+                
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="oneFooter">
+                <ul class="backButton">
+                    <li><a href="#films" data-role="button"><h2>Tillbaka till filmerna</h2></a></li>
+                </ul>  
+                <ul class="footMenu">
+                    <li><a href="#menu" data-role="button"><img src="images/home.png"/></a></li>
+                    <li><a href="#mylist" data-role="button"><img src="images/mylist.png"/></a></li>
+                    <li><a href="#schneiderpasset" data-role="button"><img src="images/schneiderpasset.png"/></a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-------------------- SCHEIDERPASSET -------------------->
+        <div data-role="view" id="schneiderpasset" data-show="spiritLevel">
+            <div class="wrapper">
+                <div class="innerWrapper">
+                    <img id="spiritBg" src="images/background.png" style="position:absolute; z-index:-2"  alt=""/>
+                    <img id="spiritOlay" src="images/overlay.png" style="position:absolute; z-index:0"  alt=""/>
+                    <img id="bubble" src="images/bubble.png" style="position:absolute; top: 173px; left: 50%; z-index:-1" alt=""/>
+                    <img id="soundButton" src="images/btn-on.png" data-role="button" data-click="toggleSound" style="position:absolute; top: 150px; left: 15%; z-index:1" alt=""/>
+                    <span height="42px" width="100px"><h1 id="gradeHolder"></h1></span>
                 </div>
-            </header>
-
-            <div data-role="footer">
-                <div data-role="tabstrip">
-                    <a href="#tabstrip-home" data-icon="home">Home</a>
-                    <a href="#tabstrip-uiinteraction" data-icon="share">UI Interaction</a>
-                    <a href="#tabstrip-geolocation" data-icon="globe">Geolocation</a>
-                </div>
+            </div>    
+            <div data-role="footer" data-position="fixed" data-id="oneFooter">
+                <ul class="footMenu">
+                    <li><a href="#menu" data-role="button"><img src="images/home.png"/></a></li>
+                    <li><a href="#mylist" data-role="button"><img src="images/mylist.png"/></a></li>
+                    <li><a href="#schneiderpasset" data-role="button"><img src="images/schneiderpasset.png"/></a></li>
+                </ul>
             </div>
         </div>
+        
+        <!-------------------- MYLIST -------------------->
+        <div data-role="view" id="mylist" data-show="showMylist">
+            <div class="header">
+                <h1>Min Lista</h1>
+                       
+            </div>
+            <ul id="mylistList" class="mylist">
+                    
+            </ul> 
 
-        <script>
-            var app = new kendo.mobile.Application(document.body, { transition: "slide", layout: "mobile-tabstrip" });
-        </script>
+            <div data-role="footer" data-position="fixed" data-id="oneFooter">
+                <ul class="footMenu">
+                    <li><a href="#menu" data-role="button"><img src="images/home.png"/></a></li>
+                    <li><a href="#mylist" data-role="button"><img src="images/mylist.png"/></a></li>
+                    <li><a href="#schneiderpasset" data-role="button"><img src="images/schneiderpasset.png"/></a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-------------------- APPINFO -------------------->
+        <div data-role="view" id="appInfo">
+            <div class="header" data-role="button" data-transition="slideup" href="#menu">
+                <p>Informationen i denna app har i första hand ett informativt och pedagogiskt syfte för att erbjuda inspiration och råd. Informationen kan inte ersätta professionell rådgivning från fackfolk och kan därför inte utan sådan rådgivning fungera som en slutgiltig grund, varken för val av produkt eller korrekt, lämplig och lagenlig installationsmetod.</p>
+                <p>Schneider Electric använder skälig omsorg för att säkerställa att informationen i appen är korrekt. Schneider Electric lämnar dock inga garantier, varken uttryckliga eller underförstådda, gällande informationens korrekthet, felfrihet, fullständighet och/eller användarvänlighet. Schneider Electric påtar sig inte heller något ansvar för skador på användarens egendom eller verksamhet eller olyckor, som påstås vara relaterade till användningen av den information som finns tillgänglig i appen.</p>       
+                <p>Ansvarig utgivare är Schneider Electric Sverige AB.</p>
+                <p>Schneider Electric Sverige AB<BR/> 
+                    Box 1009<BR/>
+                    61129 Nyköping
+                </p> 
+                <p>    
+                    Tel: 0155-26 54 00<BR/>
+                    E-mail: info@se.schneider-electric.com<BR/>
+                    www.schneider-electric.com/se
+                </p>
+            </div>   
+        </div>
+
+        <script src="cordova.js"></script>
+        <script src="json/products.json"></script>
+        <script src="kendo/js/jquery.min.js"></script>
+        <script src="kendo/js/kendo.mobile.min.js"></script>
+        <script src="scripts/globeNfunc.js"></script>
+		<script type="text/x-kendo-template" id="customListViewTemplate">
+			<a id="pLink${productId}">
+                <h2> ${partnumberDescription} </h2>
+            </a>
+            <div id="product${productId}">
+            </div>    
+		</script>
+
     </body>
 </html>
