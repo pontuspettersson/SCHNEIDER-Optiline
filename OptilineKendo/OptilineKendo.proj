@@ -35,6 +35,7 @@
     <Folder Include="json" />
     <Folder Include="images" />
     <Folder Include="catalog" />
+    <Folder Include="sound" />
     <Folder Include="styles" />
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +218,9 @@
       <Platform>Android</Platform>
       <TargetName>cordova.js</TargetName>
     </Content>
+    <Content Include="sound\degree.mp3" />
+    <Content Include="sound\degrees2.mp3" />
+    <Content Include="sound\degrees3.mp3" />
     <Content Include="styles\main.css" />
     <Content Include="underNodes.html" />
   </ItemGroup>

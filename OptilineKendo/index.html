@@ -219,7 +219,7 @@
         </div>
         
         <!-------------------- SCHEIDERPASSET -------------------->
-        <div data-role="view" id="schneiderpasset" data-show="spiritLevel">
+        <div data-role="view" id="schneiderpasset" data-show="spiritLevel" data->
             <div class="wrapper">
                 <div class="innerWrapper">
                     <img id="spiritBg" src="images/background.png" style="position:absolute; z-index:-2"  alt=""/>
@@ -228,7 +228,12 @@
                     <img id="soundButton" src="images/btn-on.png" data-role="button" data-click="toggleSound" style="position:absolute; top: 150px; left: 15%; z-index:1" alt=""/>
                     <span height="42px" width="100px"><h1 id="gradeHolder"></h1></span>
                 </div>
-            </div>    
+            </div>
+            <div id="soundDrop">
+                <audio id="deg1" src="sound/degree.mp3" preload="auto"></audio>
+                <audio id="deg2" src="sound/degrees2.mp3" preload="auto"></audio>
+                <audio id="deg3" src="sound/degrees3.mp3" preload="auto"></audio>
+            </div>
             <div data-role="footer" data-position="fixed" data-id="oneFooter">
                 <ul class="footMenu">
                     <li><a href="#menu" data-role="button"><img src="images/home.png"/></a></li>
@@ -281,7 +286,7 @@
         <script src="kendo/js/kendo.mobile.min.js"></script>
         <script src="scripts/globeNfunc.js"></script>
 		<script type="text/x-kendo-template" id="customListViewTemplate">
-			<a id="pLink${productId}">
+			<a id="pLink${productId}" showing="false">
                 <h2> ${partnumberDescription} </h2>
             </a>
             <div id="product${productId}">

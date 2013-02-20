@@ -22,26 +22,38 @@ function onDeviceReady() {
 
 // Functions
 
+function test () {
+    
+}
+
+
+function shutOff () {
+    navigator.accelerometer.clearWatch(schneiderpasset);    
+}
+
+
 function precise_round (num,decimals) {
     return Math.round(num*Math.pow(10,decimals))/Math.pow(10,decimals);
 }
 
+
+
 function tapControl (Id) {
-    G_lastClicked = Id;            
+    G_lastClicked = Id;
 }
 
-function tapMoveControl () {
-    G_lastClicked = 0;            
-}
 
-/*function addAnimate (Id) {
-    document.getElementById("addText" + Id).width="20px";
+
+function addAnimate (Id) {
+    document.getElementById("add" + Id).innerHTML='<img src="images/add-mylist.png" alt=""/>';
     
     setTimeout( function () {
-        console.log("apa");
-        document.getElementById("addText" + Id).text="Lägg till i Min Lista";
-    }, 1000);
-}*/
+        text = 'Lägg till i Min Lista<img src="images/add-mylist.png" alt=""/>';
+        document.getElementById("add" + Id).innerHTML=text;
+    }, 100);
+}
+
+
 
 // Loading the youtubelist and list all the films
 
@@ -64,12 +76,16 @@ function loadYoutube () {
     });
 }
 
+
+
 // Open the selected video and show it
 
 function openVideo (e) {
     console.log(e.view.params.id);
     document.getElementById("showFilmContent").innerHTML='<iframe width="' + _W + '" height="' + _H/2 + '" src="http://www.youtube.com/embed/' + e.view.params.id + '"&autoplay=true /></iframe>';
 }
+
+
 
 // Getting the selected productgroup and setting the Header to it
 
@@ -91,6 +107,8 @@ function getProductHeader (Id, page) {
     }
 }
 
+
+
 // Show the selected product
 
 function showProduct (Id) {
@@ -111,9 +129,9 @@ function showProduct (Id) {
 			}
 		}    
 		var text = '<img src="http://mediabase.snb.schneider-electric.com/displayimage.ashx?mediano=' + Image + '&t=gif" style="display: block; margin-left: auto; margin-right: auto;" alt=""/>';
-		text += '<p>' + descriptionShort + '</p><p>E-nummer: ' + WholeSalerNumber + '<BR/>Art. nr.: ' + PartNumber + '<BR/>EAN: ' + Ean + '</p><p style="text-align:right;"><a id="add' + Id + '"><span id="addText' + Id + '">Lägg till i Min Lista</span><img src="images/add-mylist.png" alt=""/></a></p>';
+		text += '<p>' + descriptionShort + '</p><p>E-nummer: ' + WholeSalerNumber + '<BR/>Art. nr.: ' + PartNumber + '<BR/>EAN: ' + Ean + '</p><p style="text-align:right;"><a id="add' + Id + '">Lägg till i Min Lista<img src="images/add-mylist.png" alt=""/></a></p>';
 		document.getElementById("product" + Id).innerHTML = text;
-		document.getElementById("pList" + Id).style.backgroundImage = "url(images/btn-down.png)";
+		document.getElementById("pLink" + Id).parentNode.style.backgroundImage = "url(images/btn-down.png)";
 		$("#product" + Id).hide();
 		$("#product" + Id).toggle("slow", function () {
 			document.getElementById("pLink" + Id).setAttribute("onTouchEnd", "unshowProduct(" + Id + ")");
@@ -122,17 +140,21 @@ function showProduct (Id) {
 	}    
 }
 
+
+
 // Hide the selected product
 
 function unshowProduct (Id) {
     if (G_lastClicked == Id) {
         console.log("------UNSHOWING PRODUCT------");
-        document.getElementById("pList" + Id).style.backgroundImage="url(images/btn-right.png)";
+        document.getElementById("pLink" + Id).parentNode.style.backgroundImage="url(images/btn-right.png)";
         $("#product" + Id).toggle("slow", function () {
             document.getElementById("pLink" + Id).setAttribute("onTouchEnd", "showProduct(" + Id + ")");    
         });
     }
 }
+
+
 
 // Removing the selected product from mylist
 
@@ -156,13 +178,17 @@ function removeMylistItem(Id) {
     showMylist();
 }
 
+
+
 // Saving the product to mylist
 
 function saveToMylist (Id) {
     console.log("------SAVING PRODUCT TO MYLIST------");
-    //addAnimate(Id);
+    addAnimate(Id);
     localStorage.id += "-"+Id;    
 }
+
+
 
 // Show all products in mylist
 
@@ -188,6 +214,8 @@ function showMylist (e) {
     }
 }
 
+
+
 // Get all the main nodes
 
 function showNodes () {
@@ -210,6 +238,8 @@ function showNodes () {
     document.getElementById("nodesList").innerHTML=text;
     
 }
+
+
 
 // Get all nodes and product groups that have the picked node as parent and listing them
 
@@ -287,6 +317,8 @@ function showUnderNodes (e) {
     document.getElementById("underNodesList").innerHTML=text;
 }
 
+
+
 // Get all product groups that have the picked node as parent and listing them
 
 function showProductGroups (e) {
@@ -337,6 +369,8 @@ function showProductGroups (e) {
     document.getElementById("productGroupsList").innerHTML=text; 
 }
 
+
+
 // Get all products that have the picked product Group and listing them
 
 function showProducts (e) {
@@ -356,19 +390,22 @@ function showProducts (e) {
     
     getProductHeader(pgroupId, "Product");
     
-/*    $("#productsList").destroy;
-    
-    var products = filterProducts(jsonProducts);
+    /*var products = filterProducts(jsonProducts);
     
 	$("#productsList").kendoMobileListView({
 		dataSource: kendo.data.DataSource.create({ data: products}),
 		template: $("#customListViewTemplate").html(),
         click: function(e) {
-            console.log(e);
-            showProduct(e.dataItem.productId);
+            console.log(document.getElementById("pLink"+e.dataItem.productId).onclick);
+            if (document.getElementById("pLink"+e.dataItem.productId).onclick == false) {
+                showProduct(e.dataItem.productId);    
+            } else {
+                unshowProduct(e.dataItem.productId); 
+            }
+            
         }
-	});
-    */
+	});*/
+    
     for(var i = 0; i < jsonProducts.length; i++){
         createAble = true;
         size = 22;
@@ -392,7 +429,7 @@ function showProducts (e) {
                 size = 11;
                 pad = 22 - size;
             }
-            text += '<li id="pList' + jsonProducts[i].productId + '" style="margin-top: ' + (-15 + pad) + 'px;"><a id="pLink' + jsonProducts[i].productId + '" onTouchStart="tapControl(' + jsonProducts[i].productId + ')" onTouchEnd="showProduct(' + jsonProducts[i].productId + ')"><h2 style="font-size:' + size + 'px; padding-top:' + pad + 'px">' + jsonProducts[i].partnumberDescription + '</h2></a></li><div id="product' + jsonProducts[i].productId + '"></div>';
+            text += '<li id="pList' + jsonProducts[i].productId + '" style="margin-top: ' + (-15 + pad) + 'px;"><a id="pLink' + jsonProducts[i].productId + '" onTouchStart="tapControl(' + jsonProducts[i].productId + ')"  onTouchEnd="showProduct(' + jsonProducts[i].productId + ')"><h2 style="font-size:' + size + 'px; padding-top:' + pad + 'px">' + jsonProducts[i].partnumberDescription + '</h2></a></li><div id="product' + jsonProducts[i].productId + '"></div>';
             tempArr[tempArr.length] = jsonProducts[i].partnumberDescription.toString();
         }
     }
@@ -400,11 +437,13 @@ function showProducts (e) {
     document.getElementById("productsList").innerHTML=text;
 }
 
-function filterProducts(productArray) {
+/*function filterProducts(productArray) {
 	return productArray.filter(function(product) { 
 		return product.productGroupId == G_pgroupId;  
 	});
-}
+}*/
+
+
 
 
 // Show the image of the selected productgroup
@@ -423,6 +462,8 @@ function showProductPic (e) {
     document.getElementById("productPicsHolder").innerHTML=text;
 }
 
+
+
 // Show the info of the selected productgroup
 
 function showProductGroupInfo (e) {
@@ -437,17 +478,33 @@ function showProductGroupInfo (e) {
     document.getElementById("productInfoContent").innerHTML=text;
 }
 
+
+
+function play(sound) {
+	var text = '<embed loop="true" src="sound/' + sound + '.mp3" hidden="true" type="video/quicktime"></embed>';
+    //document.getElementById("soundDrop").innerHTML=text;
+}
+
+
+
 // Getting the acceleration of the Y-angle and placing the bubble on the spirit-level
 
 function spiritLevel (e) {
     console.log(_H);
     function onSuccess(acceleration) {
+        var result;
         if (acceleration.y < 0) {
-            document.getElementById("gradeHolder").innerHTML=precise_round(((acceleration.y-acceleration.y*2)*9), 1)+"°";    
+            result = precise_round(((acceleration.y-acceleration.y*2)*9), 1);
+            document.getElementById("gradeHolder").innerHTML=result+"°";    
         } else {
-            document.getElementById("gradeHolder").innerHTML=precise_round((acceleration.y*9), 1)+"°";
+            result = precise_round((acceleration.y*9), 1);
+            document.getElementById("gradeHolder").innerHTML=result+"°";
         }
-        document.getElementById("bubble").style.top=(_H/2-26)-(_H/15)-(acceleration.y*17.3)+'px';
+        document.getElementById("bubble").style.top=(_H/2-26)-(_H/15)-(acceleration.y*17.3)+"px";
+        if (result <= 3) {
+            console.log("!");
+            document.getElementById("deg3").play();
+        }
     }
         
     function onError() {
@@ -455,17 +512,19 @@ function spiritLevel (e) {
     }
     
     console.log("------ENTER SPIRIT-LEVEL VIEW------");
-    document.getElementById("spiritBg").style.height=_H+'px';
-    document.getElementById("spiritBg").style.width=_W+'px';
-    document.getElementById("spiritBg").style.top=-(_H/15)+'px';
-    document.getElementById("spiritOlay").style.height=_H+'px';
-    document.getElementById("spiritOlay").style.width=_W+'px';
-    document.getElementById("spiritOlay").style.top=-(_H/15)+'px';
-    document.getElementById("bubble").style.top=_H/2.25-(_H/15)+'px';
-    document.getElementById("gradeHolder").style.top=_H/2.5-(_H/15)+'px';
-    document.getElementById("soundButton").style.top=_H/2.65-(_H/15)+'px';
-    navigator.accelerometer.watchAcceleration(onSuccess, onError, { frequency: 20 });
+    document.getElementById("spiritBg").style.height=_H+"px";
+    document.getElementById("spiritBg").style.width=_W+"px";
+    document.getElementById("spiritBg").style.top=-(_H/15)+"px";
+    document.getElementById("spiritOlay").style.height=_H+"px";
+    document.getElementById("spiritOlay").style.width=_W+"px";
+    document.getElementById("spiritOlay").style.top=-(_H/15)+"px";
+    document.getElementById("bubble").style.top=_H/2.25-(_H/15)+"px";
+    document.getElementById("gradeHolder").style.top=_H/2.5-(_H/15)+"px";
+    document.getElementById("soundButton").style.top=_H/2.65-(_H/15)+"px";
+    schneiderpasset = navigator.accelerometer.watchAcceleration(onSuccess, onError, { frequency: 20 });
 }
+
+
 
 // Toggle the sound and changing button image
 
